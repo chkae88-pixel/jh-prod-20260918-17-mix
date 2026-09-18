@@ -1,0 +1,36 @@
+{
+  "run_id": "JH-PROD-20260918-17-MIX",
+  "note": "Clearly synthetic evaluation fixtures. Not live applications.",
+  "cases": [
+    {
+      "case_id": "SYN-01-DUPLICATE-ATS-PATHS",
+      "covers": ["duplicates"],
+      "fixture": "FAB Job Identification 494 appears under /sites/fabCareers, /sites/CX_2001 and /sites/CX on the same Oracle tenancy. Minor Workday JR101220 vs SmartRecruiters 744000* expired Bangkok listings are dual-ATS not two employers. Automattic greenhouse boards automatticjobs (empty) vs automatticcareers (16-21 jobs).",
+      "expected_behavior": "Dedupe by employer + ats_tenant + job_id, not by URL path alone."
+    },
+    {
+      "case_id": "SYN-02-CLOSED-410-OR-EXPIRED",
+      "covers": ["closed roles"],
+      "fixture": "ADNOC job/31021 HTTP 410 filled while search-results can still list the ID. Canva 6000000000913176 404 vs indexed JD. Minor SmartRecruiters 744000105086395 Sorry this job has expired. PTT 057/2569 close date 31 Jul 2026 past as of 18 Sep 2026.",
+      "expected_behavior": "Prefer detail HTTP status and explicit expired/filled/past-close-date over search cards."
+    },
+    {
+      "case_id": "SYN-03-UNKNOWN-SALARY",
+      "covers": ["unknown salary"],
+      "fixture": "UOB JR83527, OCBC JR00006148, Mapletree 1366362166, ThaiBev cards, FAB 1298, Landmark partnership cards, Mashreq 5788, AD Ports 11814 publish no compensation.",
+      "expected_behavior": "Store published_compensation=null. Do not infer."
+    },
+    {
+      "case_id": "SYN-04-BASE-BONUS-OTE-CONFUSION",
+      "covers": ["base/bonus confusion"],
+      "fixture": "Stripe 8068746 SGD 358,400-537,600 is published OTE including commission+base. SATS Earn up to S$3,500/mth plus S$5,000 joining bonus applicable to Singaporeans and PRs only is a campaign ceiling plus restricted bonus.",
+      "expected_behavior": "Store exact published string and compensation_type ote|base|campaign_ceiling|unknown. Never coerce OTE to base."
+    },
+    {
+      "case_id": "SYN-05-REMOTE-RESTRICTION-AND-MISLEADING-TITLE",
+      "covers": ["remote restrictions", "misleading titles"],
+      "fixture": "Stripe SG office-assigned 50% local office. HubSpot Remote-USA is country-tagged. Remote.com location tags are advertising-only; check Practicals. Automattic WooCommerce partnerships role is North America only despite work-from-anywhere company copy. AD Ports Country Manager Cameroon job/11814 is Abu Dhabi + UAE Nationals=Yes. Canva official Singapore filter=0.",
+      "expected_behavior": "Company-level remote copy is not role-level permission. Title geography is not work location."
+    }
+  ]
+}
