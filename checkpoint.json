@@ -1,0 +1,44 @@
+{
+  "run_id": "JH-PROD-20260918-17-MIX",
+  "started_bkk": "2026-09-18T17:16:00+07:00",
+  "started_utc": "2026-09-18T10:16:00Z",
+  "exported_bkk": "2026-09-18T18:20:00+07:00",
+  "exported_utc": "2026-09-18T11:20:00Z",
+  "timezone": "Asia/Bangkok",
+  "sprint_end_rule": "At or after 2026-09-21 00:00 Asia/Bangkok, do no research; return SPRINT ENDED",
+  "persistence_status": "unverified",
+  "pilot_url": "https://grok.com/c/4df77e3e-58e0-4719-add3-38041ce0737d",
+  "pilot_status": "inaccessible_login_walled",
+  "prior_run_authoritative_exclusions": ["Emirates Group", "DP World", "Majid Al Futtaim", "noon", "Careem", "Emirates NBD", "e&", "Chalhoub Group", "Sea/Shopee", "Grab", "Lazada", "DBS", "Singtel", "CapitaLand", "PSA", "Agoda", "Central Retail", "CP All", "Shopify", "Wise"],
+  "review_state": "unreviewed",
+  "independent_verification_claimed": false,
+  "deduplication_claimed": false,
+  "counts_derived_from_final_tables": {
+    "new_employers_attempted": 20,
+    "new_employer_records_in_employers_json": 20,
+    "pending_recheck_employers_touched": 5,
+    "briefs": 3,
+    "synthetic_eval_cases": 5,
+    "apply_form_verified": 0,
+    "apply_path_observed": 6,
+    "listing_or_hub_only_employers": 12,
+    "watchlist_or_stale_employers": 8,
+    "blocked_or_empty_page_fetches": 14,
+    "roles_rows_in_roles_csv": 42,
+    "source_rows_in_sources_csv": 48
+  },
+  "assignments": {
+    "Harper": ["ThaiBev", "SCB", "True Corporation", "Minor International", "PTT", "HubSpot", "Automattic", "Remote.com", "briefs Minor+ThaiBev"],
+    "Lucas": ["OCBC", "UOB", "SATS", "Sembcorp", "Mapletree", "Stripe", "Canva"],
+    "Benjamin": ["ADNOC", "FAB", "Landmark Group", "AD Ports Group", "Mashreq", "brief Landmark"],
+    "Grok": ["pending rechecks Booking.com GitLab Atlassian CapitaLand JR004187 noon", "merge/export"]
+  },
+  "quality_notes": [
+    "Minor JR101220 and AD Ports 11814 recoded from apply_verified=true to apply_path_observed only",
+    "Stripe 8068746 compensation is published OTE including commission+base",
+    "PTT openpositions close dates 31 Jul 2569 / 2026-07-31 are past",
+    "SCB hub dates June 2025 are stale vs retrieval",
+    "Canva official Singapore filter = 0 jobs",
+    "ADNOC search cards can list IDs whose detail pages are HTTP 410 filled"
+  ]
+}
